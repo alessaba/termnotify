@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "termnotify"
+version = "0.1.0"
+description = "Desktop notifications through the terminal (OSC 9/777/99), the way OpenCode does it"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Alessandro Saba", email = "alessandrosaba023@gmail.com" }]
+keywords = [
+    "notifications",
+    "terminal",
+    "osc",
+    "osc9",
+    "osc777",
+    "osc99",
+    "macos",
+    "ghostty",
+    "kitty",
+    "iterm2",
+    "wezterm",
+    "opencode",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3",
+    "Topic :: Terminals",
+]
+
+[project.scripts]
+termnotify = "termnotify.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -52,6 +52,25 @@ when several match, the highest protocol priority (osc99 > osc777 > osc9)
 wins. No interactive capability query is performed, so detection is
 instant and never blocks or touches the input stream.
 
+Verified caveats (Sep 2026):
+
+- **Windows Terminal** implements OSC 777 behind
+  `compatibility.allowOSC777` (default `false`) and suppresses the toast
+  while focused. OSC 9 there is the ConEmu subcommand family, not an
+  iTerm2-style toast.
+- **VTE-based terminals** (GNOME Terminal, Tilix, Terminator, Xfce, ...)
+  expose OSC 777 as a *legacy* API
+  (`vte_terminal_set_enable_legacy_osc777`), so whether it works depends
+  on the app and version; VTE ignores OSC 9.
+- **OSC 9 is overloaded**: a body starting with `N;` is a ConEmu
+  subcommand (e.g. `9;4` progress), so don't start messages with digits
+  and a semicolon.
+- **Ghostty** handles OSC 9 and OSC 777; OSC 99 is implemented in its
+  parser (with query replies) but is newer than its docs.
+- **kitty** also understands the legacy OSC 9, and OSC 777 since 0.24.0.
+- **Terminal.app, VS Code, Alacritty and Konsole** have no native OSC
+  notification support (use `osascript` or an extension there).
+
 Force a protocol when detection fails:
 
 ```console

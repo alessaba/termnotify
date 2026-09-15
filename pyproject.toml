@@ -38,5 +38,10 @@ classifiers = [
 [project.scripts]
 termnotify = "termnotify.__main__:main"
 
+[project.urls]
+Homepage = "https://github.com/alessaba/termnotify"
+Repository = "https://github.com/alessaba/termnotify"
+Issues = "https://github.com/alessaba/termnotify/issues"
+
 [tool.setuptools.packages.find]
 where = ["src"]

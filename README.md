@@ -118,3 +118,14 @@ Requires Python 3.9+.
 $ python -m unittest discover -s tests -v
 $ PYTHONPATH=src python -m termnotify --detect
 ```
+
+## Releasing
+
+Pushing a `v*` tag publishes to PyPI through GitHub Trusted Publishing
+(`.github/workflows/publish.yml`). Configure the trusted publisher for
+`alessaba/termnotify` (workflow `publish.yml`, environment `pypi`) once in
+the PyPI project settings, then:
+
+```console
+$ git tag v0.1.0 && git push origin v0.1.0
+```
